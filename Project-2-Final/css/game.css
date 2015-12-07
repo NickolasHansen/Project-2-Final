@@ -1,0 +1,28 @@
+.background    { background: rgb(168, 166, 251);
+                 table-layout: fixed;
+                 border-spacing: 0;   }
+.background td { padding: 0;          }
+.lava          { background: url('http://www.8bitdad.com/wp-content/themes/8bdLeet/images/twitter.png')  }
+.wall          { background: black }
+.spike         { background: url('http://kloopd.com/users/1/facebookicon1348952387.png') }
+
+.actor  { position: absolute;  }
+.coin   { background: url('https://38.media.tumblr.com/8936b90ad206670c451058ddfe41747e/tumblr_np3brwixi91qfkecio1_75sq.gif') }
+.player { background: url('https://www.telebox-live.com/media/image/thumbnail/d88f3ae98d9dd01444965770b3b8e488_30x30.jpg') }
+.hostile { background: url('http://static.planetminecraft.com/files/avatar/45383.png')}
+
+.game {
+  overflow: hidden;
+  max-width: 600px;
+  max-height: 450px;
+  position: relative;
+}
+
+.lost .player {
+  background: rgb(255, 0, 0);
+  box-shadow: -4px -7px 8px black, 4px -7px 8px magenta;
+}
+.won .player {
+  background: rgb(0, 0, 255);
+  box-shadow: -4px -7px 8px silver, 4px -7px 8px gold;
+}
