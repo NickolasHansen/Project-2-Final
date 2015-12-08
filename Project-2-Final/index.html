@@ -5,13 +5,171 @@
 <link rel="stylesheet" href="css/game.css">
 
 <body>
-  <script>
-    runGame(GAME_LEVELS, DOMDisplay);
-  </script>
-  <br>
-  <p>Instructions
-  <br>
-  Collect all your memory
-  <br>
-  avoid the dangers of social media and viruses <br> move with the left, right keys and jump with the up key <br> Good luck  </p>
+  
+ <canvas id="canvas" width="590" height="600" style="border:5px solid #000000;"></canvas>
+
+ <script>
+ var gameRun = 0 
+ var startImage = 0
+ var text = 0
+ //var health = 5
+ var canvas = document.getElementById("canvas");
+ var context = canvas.getContext("2d");
+ var update = setInterval(draw, 10);
+ var width = 590
+ var height = 600
+ 
+function circle (x, y, r){
+context.beginPath();
+context.arc(x, y, r, 0,2*Math.PI);
+context.stroke(); 
+}
+
+function showHealth(health){
+  context.strokeStyle = 'white';
+  context.stroke();
+  context.font  = "50px Arial";
+  context.fillText(health, 40, 110);
+}
+
+function makeText(text){
+  context.strokeStyle = 'black';
+  context.stroke();
+  context.font  = "20px Arial";
+  if (text == 1){
+  context.fillText("use A,W,D to make your", 310, 25);
+  context.fillText(" way around.", 310, 45);
+  } else if (text == 2){
+  context.fillText("You'll need to perform a double", 305, 25);
+  context.fillText("jump to reach there press W", 310, 45);
+  context.fillText("in mid-air to get across.", 310, 65);
+  } else if (text == 3){
+  context.fillText("This building is too high to jump ", 300, 25);
+  context.fillText("over. Use E to phase through ", 300, 45);
+  context.fillText("the cracks ", 300, 65);
+  } else if (text == 4){
+  context.fillText("Using your new abilities will", 310, 25);
+  context.fillText("drain your life. Collect orbs", 310, 45);
+  context.fillText("to replenish health and keep ", 310, 65);
+  context.fillText("you from death. ", 310, 85);
+  } else if (text == 5){
+
+  }else if (text == 6){
+  context.fillText("This guard is warded against ", 310, 25);
+  context.fillText("your attacks. Use E to phase", 310, 45);
+  context.fillText("past him.", 310, 65);
+  }else if (text == 7){
+  context.fillText("Keep an eye out for Key items", 305, 25);
+  context.fillText("along the way, they with surely", 305, 45);
+  context.fillText("help you. Once you have key ", 305, 65);
+  context.fillText("phase through the floor to", 305, 85);
+  context.fillText("continue our escape.", 305, 105);
+ } else if (text == 8){
+  context.fillText("Don't fall into the pool of Psy", 310, 25);
+  context.fillText("energy\, it will slowly kill you.", 310, 45);
+}  else if (text == 9){
+	
+}
+}
+
+function start() {
+  canvas = document.getElementById("canvas");
+  context = canvas.getContext("2d");
+}
+function drawRect(x,y,w,h) {
+  context.beginPath();
+  context.rect(x,y,w,h);
+  context.closePath();
+  context.fill();
+}
+function RectG(x,y,w,h) {
+  context.beginPath();
+  context.rect(x,y,w,h);
+  context.closePath();
+  context.fill();
+  this.addEventListener("mousedown", nextImage2, false)
+}
+function RectB(x,y,w,h) {
+  context.beginPath();
+  context.rect(x,y,w,h);
+  context.closePath();
+  context.fillStyle = '#8ED6FF';
+  context.fill();
+  this.addEventListener("mousedown", nextImage3, false)
+}
+function draw() {
+  context.clearRect(0, 0, width, height);
+  context.fillStyle = "black";
+  drawRect(0,0, width, height);
+  context.fillStyle = "white";
+  if (phase == 0){
+  context.fillText("not phased", 170, 125);
+  } else if (phase == 1){
+  context.fillText("phased", 170, 125);
+  }
+  showHealth(health)
+  makeText(text)
+  if (startImage == 0){
+  context.fillText("The Test", 250, 365);
+  context.fillText("By Nicholas", 240, 385);
+  context.fillText("Click on the Game Sceen to begin", 150, 405);
+  }else if (startImage == 1){
+  context.fillText("Welcome to the testing center", 120, 405);
+  context.fillText("Here we will test you ability to survive Challenges", 120, 425);
+  context.fillText("Truthfully I dont think you will make it", 120, 445);
+  }else if (startImage == 2){
+    context.fillText("Use A to move Left", 0, 165);
+	context.fillText("Use D to move Right", 0, 185);
+	context.fillText("Use W to Jump", 0, 205);
+	context.fillText("Use W while in mid air to Double Jump", 0, 225);
+	context.fillText("Use E to Phase", 0, 245);
+	context.fillText("Hit Space to Shoot", 0, 265);
+	context.fillText("Look for damaged walls you can phase htrough them", 0, 285);
+	context.fillText("Also some areas when you stand on them will bounce you up", 0, 305);
+	context.fillText("Good Luck", 0, 325);
+	context.fillText("Click on these screens to pass them by", 0, 345);
+  }else if (startImage == 3){
+		if (gameRun == 0){
+		runGame(GAME_LEVELS, DOMDisplay);
+		gameRun = 1;
+		document.getElementById('canvas').height = 150;
+		}
+  } else if (startImage == 4){
+  context.fillText("Little more than a fluke, This will stop you", 120, 405);
+  gameRun = 0;
+  } else if (startImage == 5){
+		if (gameRun == 0){
+		runGame(GAME_LEVELS, DOMDisplay);
+		gameRun = 1;
+		document.getElementById('canvas').height = 150;
+		}
+  } else if (startImage == 6){
+  context.fillText("So you Really think you have what it takes?", 120, 405);
+  }else if (startImage == 7){
+		if (gameRun == 0){
+		runGame(GAME_LEVELS, DOMDisplay);
+		gameRun = 1;
+		document.getElementById('canvas').height = 150;
+		}
+  }else if (startImage == 8){
+  context.fillText("Congradulations you Passed", 150, 405);
+  context.fillText("The Test", 250, 425);
+  context.fillText("Hit Refresh to play again", 150, 445);
+		}
+}
+
+function nextImage(){
+if (startImage < 8)
+ startImage ++
+}
+
+ window.onload = function (){
+ start
+ canvas.addEventListener("mousedown", nextImage, false)
+ }
+ 
+ function startGame(){
+     runGame(GAME_LEVELS, DOMDisplay);
+	 }
+ </script>
 </body>

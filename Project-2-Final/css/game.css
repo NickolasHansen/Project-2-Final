@@ -1,28 +1,59 @@
-.background    { background: rgb(168, 166, 251);
+body    { 
+		background-color: white;
+}
+
+.background    { background:;
                  table-layout: fixed;
                  border-spacing: 0;   }
 .background td { padding: 0;          }
-.lava          { background: url('http://www.8bitdad.com/wp-content/themes/8bdLeet/images/twitter.png')  }
-.wall          { background: black }
-.spike         { background: url('http://kloopd.com/users/1/facebookicon1348952387.png') }
-
+.lava          { background: url("lava.png")  }
+.wall          { background: url("wall.png") }
+.wallX         { background: url("wall.png") }
+.spike         { background: url("spike.png") }
+.wall2          { background: url("wall.png") }
+.wall2X         { background: url("wall.png") }
 .actor  { position: absolute;  }
-.coin   { background: url('https://38.media.tumblr.com/8936b90ad206670c451058ddfe41747e/tumblr_np3brwixi91qfkecio1_75sq.gif') }
-.player { background: url('https://www.telebox-live.com/media/image/thumbnail/d88f3ae98d9dd01444965770b3b8e488_30x30.jpg') }
-.hostile { background: url('http://static.planetminecraft.com/files/avatar/45383.png')}
+.coin   { background:url("coin.png") }
+.player { background: url("player.png") }
+.hostile { background: url("melee.png")}
+.hostilei { background:}
+.hostilef { background: url("ranged.png")}
+.hostilef2 { background: url("ranged.png")}
+.hostilef3 { background: url("ranged.png")}
+.hostilef4 { background: url("ranged.png")}
+.hostilef5 { background: url("ranged.png")}
+.hostilef6 { background: url("ranged.png")}
+.bullet { background: url("bullet.png")}
+.bulleth { background: url("bullet.png")}
+.bulleth2 { background: url("bullet.png")}
+.bulleth3 { background: url("bullet.png")}
+.bulleth4 { background: url("bullet.png")}
+.bulleth5 { background: url("bullet.png")}
+.bulleth6 { background: url("bullet.png")}
+.healthP { background: url("HP.png")}
+.bouncerblock { background: url("Bouncer.png")}
+.phaseblock { background: url("PathWall.png")}
+.building { background: url("wall.png") }
 
 .game {
   overflow: hidden;
   max-width: 600px;
   max-height: 450px;
-  position: relative;
+  position: absolute;
+  left: 200px;
+  top: 165px
+}
+canvas{
+ position: absolute;
+ left: 200px
+}
+div.image{
+	display: none;
 }
 
 .lost .player {
-  background: rgb(255, 0, 0);
-  box-shadow: -4px -7px 8px black, 4px -7px 8px magenta;
+  background: url("player.png");
 }
 .won .player {
-  background: rgb(0, 0, 255);
-  box-shadow: -4px -7px 8px silver, 4px -7px 8px gold;
+  background: url("player.png");
 }
