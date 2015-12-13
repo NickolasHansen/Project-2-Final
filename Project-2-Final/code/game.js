@@ -1444,18 +1444,10 @@ var arrowCodes = {65: "left", 87: "up", 68: "right", 32: "space", 69: "x", 37: "
 function trackKeys(codes) {
   var pressed = Object.create(null);
 
-  // alters the current "pressed" array which is returned from this function. 
-  // The "pressed" variable persists even after this function terminates
-  // That is why we needed to assign it using "Object.create()" as 
-  // otherwise it would be garbage collected
-
   function handler(event) {
     if (codes.hasOwnProperty(event.keyCode)) {
-      // If the event is keydown, set down to true. Else set to false.
       var down = event.type == "keydown";
-      pressed[codes[event.keyCode]] = down;
-      // We don't want the key press to scroll the browser window, 
-      // This stops the event from continuing to be processed
+      pressed[codes[event.keyCode]] = down; 
       event.preventDefault();
     }
   }
